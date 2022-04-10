@@ -81,3 +81,10 @@ do
 		echo "  - Slave IO state OK"
 	fi
 done
+
+/*
+master-slave replication we change direction as master -> slave & slave -> master
+for this we need only change ip address in script file and vi /etc/my.cnf files only
+
+*/
+
