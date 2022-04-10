@@ -34,21 +34,21 @@ firewall-cmd --reload
 ### Then do the secure installation of MySQL in both Vms,
 ```
 mysql_secure_installation
-``` - change password and others enter
+```
 		
 ```	
 mysql -u root -p 
 ```
-log using root password
-	
 
 ### Create easy access for hidden file for the root user
-	```	
+
+```	
   vi .my.cnf
 	  [client]
 	  user=root
 	  password=root
-		```
+```
+
 ### Create Database and Table
 ```	
 mysql
@@ -60,17 +60,20 @@ mysql
   flush tables with read lock;
   \q
 ```
+
 ### Now we need to take a dump of this database
 ```	
 mysqldump db1 > db1.sql
 scp db1.sql slavedb:/root
 ```
+
 ### ### Then again login to MySQL and need to unlock the tables.
 ```	
 mysql
   unlock tables;
   \q
 ```
+
 ### Now we need to add replication configurations. For that we need to create a file added below details in that file.
 ```	
 vi /etc/my.cnf
